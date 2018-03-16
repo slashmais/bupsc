@@ -1,0 +1,32 @@
+
+bupsc ("bahp-see":) is a real-time deep cumulative backup utility for directories.
+It is a fire-&-forget-utility until you need to recover work.
+
+The purpose is for full, deep backup of source directories to one or more
+backup-dirs (on preferably other devices) in real-time, as you work.
+You tell it the work(source) and the backups(destinations) directories
+and it will do the rest including full initial deep copy of the work-dir,
+and as you work it will mirror the work-dir structure and content in
+real-time.
+
+bupsc runs as a deamon, and ideally should be auto-started. 
+
+1. Need the following libraries:
+	libsqlite3
+	libz
+
+2. bupsc uses the experimental version of "filesystem". If you 
+   have C++17, you need to edit 'utilfuncs.cpp' where indicated.
+
+3. Use the following commands to compile bupsc:
+	make clean
+	make
+   This will create bupsc-application. Copy bupsc to a location
+   in your PATH and execute it. It will create ~/.config/bupsc
+   which will contain the master database. You can edit the content
+   of this database directly once you understand how it works,
+   otherwise run bupsc --help which will tell you what & how.
+
+
+Questions, bugs, suggestions, comments all welcome.
+
